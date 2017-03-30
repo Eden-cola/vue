@@ -131,8 +131,8 @@ function genDefaultModel (
   modifiers: ?ASTModifiers
 ): ?boolean {
   const type = el.attrsMap.type
-  const { lazy, number, trim } = modifiers || {}
-  const needCompositionGuard = !lazy && type !== 'range'
+  const { lazy, number, trim, composing } = modifiers || {}
+  const needCompositionGuard = !lazy && type !== 'range' && !composing
   const event = lazy
     ? 'change'
     : type === 'range'
